@@ -119,5 +119,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/build/static"),
     os.path.join(BASE_DIR, "frontend/build"),
 ]
-STATIC_ROOT = env.str('STATIC_ROOT')
-MEDIA_ROOT = env.str('MEDIA_ROOT')
+# STATIC_ROOT = env.str('STATIC_ROOT')
+# MEDIA_ROOT = env.str('MEDIA_ROOT')
