@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'fyle.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db(),
-    'users': {
+    # 'default': env.db(),
+    'default': {
         'NAME': 'ozpxbshc',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'PORT': 5432,
@@ -126,6 +126,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "bank/templates/build"),
+    os.path.join(BASE_DIR, "bank/templates/build/static")
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "bank/templates/build/static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "bank/templates/build/static")
 # MEDIA_ROOT = env.str('MEDIA_ROOT')
