@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import BASE_URL from "../Base";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class Bank extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class Bank extends React.Component {
             <div className="card-body">
               <h5 className="card-title">{this.state.bank}</h5>
               <p className="card-text row">
-                <div className='col-lg-1'></div>
+                <div className="col-lg-1"></div>
                 <table className="table col-lg-10">
                   <tr>
                     <th>IFSC</th>
@@ -52,19 +52,55 @@ class Bank extends React.Component {
                   </tr>
                   <tr>
                     <th>Address</th>
-                    <td>{this.state.address}</td>
+                    <td>
+                      {this.state.address || (
+                        <div>
+                          Please wait fetching data...
+                          <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      )}
+                    </td>
                   </tr>
                   <tr>
                     <th>City</th>
-                    <td>{this.state.city}</td>
+                    <td>
+                      {this.state.city || (
+                        <div>
+                          Please wait fetching data...
+                          <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      )}
+                    </td>
                   </tr>
                   <tr>
                     <th>State</th>
-                    <td>{this.state.state}</td>
+                    <td>
+                      {this.state.state || (
+                        <div>
+                          Please wait fetching data...
+                          <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      )}
+                    </td>
                   </tr>
                   <tr>
                     <th>District</th>
-                    <td>{this.state.district}</td>
+                    <td>
+                      {this.state.district || (
+                        <div>
+                          Please wait fetching data...
+                          <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      )}
+                    </td>
                   </tr>
                 </table>
               </p>

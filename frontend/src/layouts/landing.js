@@ -20,12 +20,16 @@ class Landing extends React.Component {
     this.getBanks = this.getBanks.bind(this);
   }
   componentDidMount() {
+    $("#loader").removeClass("d-none");
+    $("#banks").addClass("d-none");
     axios
       .get(
         `${BASE_URL}api/branches/?q=&limit=${this.state.limit}&offset=${this.state.offset}`
       )
       .then((res) => {
         this.setState({ banks: res.data.branches, count: res.data.count });
+        $("#loader").addClass("d-none");
+        $("#banks").removeClass("d-none");
       })
       .catch((err) => {
         console.log(err.response);
