@@ -47,7 +47,17 @@ class Landing extends React.Component {
     this.ddos = setTimeout(this.getBanks, 500);
   }
   onChangeHandle(e) {
-    this.setState({ [e.currentTarget.name]: e.currentTarget.value, offset: 0 });
+    if ((e.currentTarget.name = "limit") && !e.currentTarget.value > 0) {
+      this.setState({
+        [e.currentTarget.name]: 1,
+        offset: 0,
+      });
+    } else {
+      this.setState({
+        [e.currentTarget.name]: e.currentTarget.value,
+        offset: 0,
+      });
+    }
     clearTimeout(this.ddos);
     this.ddos = setTimeout(this.getBanks, 500);
   }
@@ -116,6 +126,19 @@ class Landing extends React.Component {
                   />
                 </div>
               </div>
+              <div className="col-lg-9"></div>
+              <label className="col-lg-3 mt-3">
+                Results:
+                <input
+                  type="number"
+                  min="1"
+                  name="limit"
+                  onChange={this.onChangeHandle}
+                  className="form-control mt-2"
+                  placeholder="limit"
+                  value={this.state.limit}
+                />
+              </label>
               <table className="col-12 mt-5 table table-striped">
                 <thead className="thead-dark">
                   <tr>

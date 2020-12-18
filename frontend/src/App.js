@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from "./layouts/landing";
 import Bank from "./layouts/Bank";
 import { Switch, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
