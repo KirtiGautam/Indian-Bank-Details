@@ -17,7 +17,7 @@ SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG')
 
-ALLOWED_HOSTS = ['quiet-peak-48956.herokuapp.com']
+ALLOWED_HOSTS = ['quiet-peak-48956.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -78,6 +78,14 @@ WSGI_APPLICATION = 'fyle.wsgi.application'
 
 DATABASES = {
     'default': env.db(),
+    'users': {
+        'NAME': 'ozpxbshc',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'PORT': 5432,
+        'USER': 'ozpxbshc',
+        'HOST': 'satao.db.elephantsql.com',
+        'PASSWORD': 'sZluV0vC_BMLSpm1QmpTGCZ0CoTLZwmz'
+    }
 }
 
 
