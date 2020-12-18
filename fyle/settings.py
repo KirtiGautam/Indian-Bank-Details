@@ -12,7 +12,7 @@ environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'plx6ft!*&*vy_#42)(bp0(_=a7nzk$7#m6zez#2fnsg!ytxf-d'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG')
@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third party apps
+    'corsheaders',
     'rest_framework',
 
     # Custom apps
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -46,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'fyle.urls'
 
@@ -112,7 +116,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "Static"),
+    os.path.join(BASE_DIR, "frontend/build/static"),
+    os.path.join(BASE_DIR, "frontend/build"),
 ]
 STATIC_ROOT = env.str('STATIC_ROOT')
 MEDIA_ROOT = env.str('MEDIA_ROOT')
