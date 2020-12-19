@@ -47,7 +47,7 @@ class Landing extends React.Component {
     this.ddos = setTimeout(this.getBanks, 500);
   }
   onChangeHandle(e) {
-    if ((e.currentTarget.name = "limit") && !e.currentTarget.value > 0) {
+    if ((e.currentTarget.name === "limit") && !e.currentTarget.value > 0) {
       this.setState({
         [e.currentTarget.name]: 1,
         offset: 0,
