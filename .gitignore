@@ -1,6 +1,6 @@
 fEnv
 .vscode
-
+.env
 db.json
 node_modules
 __pycache__
